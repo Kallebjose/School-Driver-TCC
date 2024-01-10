@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray"
+    tools:context=".view.negociacao.NegociacaoActivity">
+
+    <!-- Adicionando ScrollView -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <EditText
+                android:id="@+id/edit_localizacao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ponto de partida"
+                android:background="@color/white"
+                android:padding="12dp"
+                android:maxLines="2"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginBottom="16dp" />
+
+
+            <!-- Título para o primeiro grupo de RadioButtons -->
+            <TextView
+                android:id="@+id/t1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ITB DESTINO"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp" />
+
+            <!-- Primeiro grupo de RadioButtons -->
+            <RadioGroup
+                android:id="@+id/radio_group1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="16dp">
+
+                <RadioButton
+                    android:id="@+id/radio1_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ITB Brasílio Flores de Azevedo"
+                    android:padding="8dp" />
+
+                <RadioButton
+                    android:id="@+id/radio1_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ITB Professora Maria Theodora Pedreira de Freitas"
+                    android:padding="8dp" />
+
+                <RadioButton
+                    android:id="@+id/radio1_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ITB Professora Maria Sylvia Chaluppe Mello"
+                    android:padding="8dp" />
+
+                <RadioButton
+                    android:id="@+id/radio1_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ITB Professor Munir José"
+                    android:padding="8dp" />
+            </RadioGroup>
+
+            <!-- Título para o segundo grupo de RadioButtons -->
+            <TextView
+                android:id="@+id/t2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Van desejada"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp" />
+
+            <!-- Segundo grupo de RadioButtons -->
+            <RadioGroup
+                android:id="@+id/radio_group2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="16dp">
+
+                <RadioButton
+                    android:id="@+id/radio2_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Van 1020"
+                    android:padding="8dp" />
+
+                <RadioButton
+                    android:id="@+id/radio2_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Van 3040"
+                    android:padding="8dp" />
+
+                <RadioButton
+                    android:id="@+id/radio2_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Van 5060"
+                    android:padding="8dp" />
+
+                <RadioButton
+                    android:id="@+id/radio2_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Van 7080"
+                    android:padding="8dp" />
+            </RadioGroup>
+
+            <!-- Título para o terceiro grupo de RadioButtons -->
+            <TextView
+                android:id="@+id/t3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Turno"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp" />
+
+            <!-- Terceiro grupo de RadioButtons -->
+            <RadioGroup
+                android:id="@+id/radio_group3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="16dp">
+
+                <RadioButton
+                    android:id="@+id/radio3_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Manhã"
+                    android:padding="8dp" />
+
+                <RadioButton
+                    android:id="@+id/radio3_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tarde"
+                    android:padding="8dp" />
+            </RadioGroup>
+
+            <!-- Título para o quarto grupo de RadioButtons -->
+            <TextView
+                android:id="@+id/t4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Método de Pagamento"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp" />
+
+            <!-- Quarto grupo de RadioButtons -->
+            <RadioGroup
+                android:id="@+id/radio_group4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="32dp">
+
+                <RadioButton
+                    android:id="@+id/radio4_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PIX"
+                    android:padding="8dp" />
+
+                <RadioButton
+                    android:id="@+id/radio4_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cartão de Débito"
+                    android:padding="8dp" />
+
+                <RadioButton
+                    android:id="@+id/radio4_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cartão de Crédito"
+                    android:padding="8dp" />
+            </RadioGroup>
+
+            <!-- Botão Enviar -->
+            <Button
+                android:id="@+id/button_enviar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enviar"
+                android:backgroundTint="@color/black"
+                android:layout_marginBottom="16dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

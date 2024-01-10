@@ -7,4 +7,34 @@
     <string name="texto_bt_cadastrar">Cadastrar</string>
     <string name="texto_bt_logar">Entrar</string>
     <string name="texto_tela_cad">Clique aqui para criar sua conta</string>
+    <string name="title_activity_home">Home</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">SchoolDriver@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Sair</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_minhaconta">Minha Conta</string>
+    <string name="menu_slideCONT">Nossos contatos</string>
+    <string name="menu_slidehome">Home</string>
+    <string name="menu_van1">"Nome do motorista: José Azevedo\n""\n""Código da Van: 1020\n""\n""ITB’s Destino: ITB Professora Maria Theodora Pedreira de Freitas\n""\n""Responsável pela Van: Andre Guerlando\n""Email: andreguerlando@gmail.com";
+</string>
+    <string name="menu_van2">"Nome do motorista: Gabriel Silva\n\nCódigo da Van: 3040\n\nItb’s Destino: ITB Professor Munir José\n\nResponsável pela Van: Kalleb José\nEmail: Kallebjs@gmail.com";
+</string>
+    <string name="menu_van3">"Nome do motorista: Antonio Souza\n\nCódigo da Van: 5060\n\nITB Destino: Profª Maria Sylvia Chaluppe Mello e ITB Brasílio Flores de Azevedo\n\nResponsável pela Van: Guilherme Gomes\nEmail: guilhermegomes@gmail.com";
+</string>
+    <string name="menu_van4">"Nome do motorista: Maria Helena\n\nCódigo da Van: 7080\n\nITB Destino: ITB Brasílio Flores de Azevedo\n\nResponsável pela Van: Laryssa Barros\nEmail: larybarros@gmail.com";
+</string>
+    <string name="menu_1">"Nome do motorista: José Azevedo\n\nCódigo da Van: 1020\n\nItb’s Destino: ITB Professora Maria Theodora Pedreira de Freitas\n\nNúmero da Placa: BEE4R20\n\nAno de Fabricação: 2018\n\nCor do Veículo: Prata\n\nNúmero de Assentos: 21\n\nCondições do Veículo: semi-novo\n\nSistema de Segurança: gps, Câmera\n\nLicenciamento: 2024\n\nResponsável pela Van: Andre Guerlando\nEmail: andreguerlando@gmail.com";
+</string>
+    <string name="menu_2">"Nome do motorista: Gabriel Silva\n\nCódigo da Van: 3040\n\nItb’s Destino: ITB Professor Munir José\n\nNúmero da Placa: UDT1H56\n\nAno de Fabricação: 2019\n\nCor do Veículo: Preto\n\nNúmero de Assentos: 15\n\nCondições do Veículo: Semi-novo\n\nSistema de Segurança: gps\n\nLicenciamento: 2024\n\nResponsável pela Van: Kalleb José\nEmail: Kallebjs@gmail.com";</string>
+    <string name="menu_3">"Nome do motorista: Antonio Souza\n\nCódigo da Van: 5060\n\nITB Destino: Profª Maria Sylvia Chaluppe Mello e ITB Brasílio Flores de Azevedo\n\nNúmero da Placa: JSQ6L97\n\nAno de Fabricação: 2023\n\nCor do Veículo: Branco\n\nNúmero de Assentos: 20\n\nCondições do Veículo: Novo\n\nSistema de Segurança: gps, vidro blindado\n\nLicenciamento: 2024\n\nResponsável pela Van: Guilherme Gomes\nEmail: guilhermegomes@gmail.com";
+</string>
+    <string name="menu_4">"Nome do motorista: Maria Helena\n\nCódigo da Van: 7080\n\nITB Destino: ITB Brasílio Flores de Azevedo\n\nNúmero da Placa: GPA3Q46\n\nAno de Fabricação: 2022\n\nCor do Veículo: Prata\n\nNúmero de Assentos: 21\n\nCondições do Veículo: Semi-novo\n\nSistema de Segurança: gps\n\nLicenciamento: 2024\n\nResponsável pela Van: Lary
+</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="qr_code_description">00020126330014BR.GOV.BCB.PIX0111565341178785204000053039865802BR5925Kalleb Jose dos Santos So6009SAO PAULO62140510ZJ1zTX1fFq6304CC50</string>
 </resources>

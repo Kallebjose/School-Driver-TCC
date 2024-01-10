@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+
+    <fragment
+        android:id="@+id/nav_host_fragment_content_home"
+        android:name="com.example.schooldrivertcc.view.home.ui.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home"
+        />
+
+    <fragment
+        android:id="@+id/nav_contato"
+        android:name="com.example.schooldrivertcc.view.home.ui.contato.ContatoFragment"
+        android:label="Contatos"
+        tools:layout="@layout/fragment_contato"
+        />
+    <fragment
+        android:id="@+id/nav_conta"
+        android:name="com.example.schooldrivertcc.view.home.ui.conta.MinhaccFragment"
+        android:label="Minha Conta"
+        tools:layout="@layout/fragment_conta"
+        />
+
+</navigation>

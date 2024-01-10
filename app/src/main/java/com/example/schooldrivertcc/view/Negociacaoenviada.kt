@@ -1,37 +1,65 @@
 package com.example.schooldrivertcc.view
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
-import androidx.activity.enableEdgeToEdge
+import android.widget.EditText
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.schooldrivertcc.R
-import com.example.schooldrivertcc.view.formlogin.FormLogin
 
-class Negociacaoenviada : AppCompatActivity() {
+class NegociacaoActivity : AppCompatActivity() {
+
+    private lateinit var editLocalizacao: EditText
+    private lateinit var radioGroup1: RadioGroup
+    private lateinit var radioGroup2: RadioGroup
+    private lateinit var radioGroup3: RadioGroup
+    private lateinit var radioGroup4: RadioGroup
+    private lateinit var buttonEnviar: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_negociacaoenviada)
+        setContentView(R.layout.activity_tela_negociar)
 
-        lateinit var btHome: Button
+        editLocalizacao = findViewById(R.id.edit_localizacao)
+        radioGroup1 = findViewById(R.id.radio_group1)
+        radioGroup2 = findViewById(R.id.radio_group2)
+        radioGroup3 = findViewById(R.id.radio_group3)
+        radioGroup4 = findViewById(R.id.radio_group4)
+        buttonEnviar = findViewById(R.id.button_enviar)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-
-
-
-
+        buttonEnviar.setOnClickListener {
+            enviarNegociacao()
         }
-        btHome = findViewById(R.id.bt_ir_home)
+    }
 
-        btHome.setOnClickListener{
-            val intent = Intent(this,FormLogin::class.java)
+    private fun enviarNegociacao() {
+        val localizacao = editLocalizacao.text.toString()
+        val op1 = findViewById<RadioButton>(radioGroup1.checkedRadioButtonId).text
+        val op2 = findViewById<RadioButton>(radioGroup2.checkedRadioButtonId).text
+        val op3 = findViewById<RadioButton>(radioGroup3.checkedRadioButtonId).text
+        val op4 = findViewById<RadioButton>(radioGroup4.checkedRadioButtonId).text
+
+        val mensagem = "Negociação:\n" +
+                "Localização: $localizacao\n" +
+                "Grupo 1: $op1\n" +
+                "Grupo 2: $op2\n" +
+                "Grupo 3: $op3\n" +
+                "Grupo 4: $op4"
+
+        val numero = "5511937293668"
+        val url = "https://api.whatsapp.com/send?phone=$numero&text=${Uri.encode(mensagem)}"
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.data = Uri.parse(url)
+
+        try {
             startActivity(intent)
+            finish() // Encerra a atividade atual
+        } catch (e: Exception) {
+            Toast.makeText(this, "Erro ao enviar mensagem.", Toast.LENGTH_SHORT).show()
         }
     }
 }
