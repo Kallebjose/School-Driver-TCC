@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">SchoolDriverTCC</string>
+    <string name="title_activity_form_cadastro">FormCadastro</string>
+    <string name="titulo_form_cadatro">Cadastre-se</string>
+    <string name="hintemail">E-mail</string>
+    <string name="hintsenha">Senha</string>
+    <string name="texto_bt_cadastrar">Cadastrar</string>
+    <string name="texto_bt_logar">Entrar</string>
+    <string name="texto_tela_cad">Clique aqui para criar sua conta</string>
+</resources>
