@@ -7,7 +7,6 @@
     android:fillViewport="true"
     xmlns:android="http://schemas.android.com/apk/res/android" >
 
-
     <LinearLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
@@ -20,7 +19,6 @@
             android:layout_width="match_parent"
             android:layout_height="278dp"
             android:src="@drawable/scholl" />
-
 
         <EditText
             android:id="@+id/edit_email"
@@ -75,6 +73,20 @@
             android:layout_marginTop="10dp"
             />
 
+        <TextView
+            android:id="@+id/txt_motorista"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login para Motoristas!"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:textStyle="bold|italic"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            />
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
