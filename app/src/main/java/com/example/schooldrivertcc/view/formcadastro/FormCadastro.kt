@@ -2,11 +2,9 @@ package com.example.schooldrivertcc.view.formcadastro
 
 import android.app.DatePickerDialog
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -34,7 +32,6 @@ class FormCadastro : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityFormCadastroBinding.inflate(layoutInflater)
 
-        enableEdgeToEdge()
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -50,9 +47,7 @@ class FormCadastro : AppCompatActivity() {
         // Formatação do campo de telefone
         binding.editTelefone.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-
             override fun afterTextChanged(s: Editable?) {
                 val input = s.toString().replace("[^\\d]".toRegex(), "")
                 val formatted = formatPhoneNumber(input)
@@ -75,9 +70,7 @@ class FormCadastro : AppCompatActivity() {
         // Formatação do campo de CPF
         binding.editCpf.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-
             override fun afterTextChanged(s: Editable?) {
                 val input = s.toString().replace("[^\\d]".toRegex(), "")
                 val formatted = formatCpf(input)
@@ -102,57 +95,104 @@ class FormCadastro : AppCompatActivity() {
         binding.btCadastrar.setOnClickListener { view ->
             val nome = binding.editNome.text.toString()
             val sobrenome = binding.editSobrenome.text.toString()
-            val cpf = binding.editCpf.text.toString().replace("[^\\d]".toRegex(), "") // Remove formatação
+            val cpf = binding.editCpf.text.toString().replace("[^\\d]".toRegex(), "")
             val dataNascimento = binding.editDataNascimento.text.toString()
-            val telefone = binding.editTelefone.text.toString()
+            val telefone = binding.editTelefone.text.toString().replace("[^\\d]".toRegex(), "") // Remove a formatação para validação
             val email = binding.editEmail.text.toString()
             val senha = binding.editSenha.text.toString()
+            val confirmSenha = binding.editConfirmSenha.text.toString() // Campo de confirmação de senha
 
             // Validação dos campos
-            if (nome.isEmpty() || sobrenome.isEmpty() || cpf.isEmpty() || dataNascimento.isEmpty() ||
-                telefone.isEmpty() || email.isEmpty() || senha.isEmpty()) {
-                showAlert("Preencha todos os campos!", false)
-            } else if (!isMaiorDeIdade(dataNascimento)) {
-                showAlert("Você deve ter pelo menos 15 anos!", false)
-            } else {
-                auth.createUserWithEmailAndPassword(email, senha).addOnCompleteListener { cadastro ->
-                    if (cadastro.isSuccessful) {
-                        val userId = auth.currentUser?.uid
-                        val user = hashMapOf(
-                            "nome" to nome,
-                            "sobrenome" to sobrenome,
-                            "cpf" to cpf,
-                            "data_nascimento" to dataNascimento,
-                            "telefone" to telefone,
-                            "email" to email
-                        )
+            if (nome.isEmpty()) {
+                binding.editNome.error = "Preencha o campo nome!"
+            } else if (!isValidName(nome)) {
+                binding.editNome.error = "O nome não pode conter números!"
+            }
 
-                        // Salvar os dados no Firestore
-                        userId?.let {
-                            db.collection("usuario")
-                                .document(it)
-                                .set(user)
-                                .addOnSuccessListener {
-                                    showAlert("Usuário cadastrado com sucesso!", true)
-                                }
-                                .addOnFailureListener { e ->
-                                    showAlert("Erro ao salvar dados: ${e.message}", false)
-                                }
+            if (sobrenome.isEmpty()) {
+                binding.editSobrenome.error = "Preencha o campo sobrenome!"
+            } else if (!isValidName(sobrenome)) {
+                binding.editSobrenome.error = "O sobrenome não pode conter números!"
+            }
+
+            if (cpf.isEmpty()) {
+                binding.editCpf.error = "Preencha o campo CPF!"
+            } else if (!isValidCPF(cpf)) {
+                binding.editCpf.error = "Digite um CPF válido!"
+            }
+
+            if (dataNascimento.isEmpty()) {
+                binding.editDataNascimento.error = "Preencha a data de nascimento!"
+            }
+
+            if (telefone.isEmpty()) {
+                binding.editTelefone.error = "Preencha o telefone!"
+            } else if (!isValidPhoneNumber(telefone)) {
+                binding.editTelefone.error = "Digite um número de telefone válido!"
+            }
+
+            if (email.isEmpty()) {
+                binding.editEmail.error = "Preencha o campo e-mail!"
+            } else if (!isValidEmail(email)) {
+                binding.editEmail.error = "Digite um e-mail válido!"
+            }
+
+            if (senha.isEmpty()) {
+                binding.editSenha.error = "Preencha o campo senha!"
+            } else if (senha.length < 6) {
+                binding.editSenha.error = "A senha deve ter no mínimo 6 caracteres!"
+            }
+
+            if (confirmSenha.isEmpty()) {
+                binding.editConfirmSenha.error = "Confirme sua senha!"
+            } else if (senha != confirmSenha) {
+                binding.editConfirmSenha.error = "As senhas não coincidem!"
+            }
+
+            // Verifica se não há erros antes de tentar cadastrar
+            if (binding.editNome.error == null && binding.editSobrenome.error == null &&
+                binding.editCpf.error == null  &&
+                binding.editTelefone.error == null && binding.editEmail.error == null &&
+                binding.editSenha.error == null && binding.editConfirmSenha.error == null) {
+
+                auth.createUserWithEmailAndPassword(email, senha)
+                    .addOnCompleteListener { cadastro ->
+                        if (cadastro.isSuccessful) {
+                            val userId = auth.currentUser?.uid
+                            val user = hashMapOf(
+                                "nome" to nome,
+                                "sobrenome" to sobrenome,
+                                "cpf" to cpf,
+                                "data_nascimento" to dataNascimento,
+                                "telefone" to telefone,
+                                "email" to email
+                            )
+
+                            userId?.let {
+                                db.collection("usuario")
+                                    .document(it)
+                                    .set(user)
+                                    .addOnSuccessListener {
+                                        showAlert("Usuário cadastrado com sucesso!", true)
+                                    }
+                                    .addOnFailureListener { e ->
+                                        showAlert("Erro ao salvar dados: ${e.message}", false)
+                                    }
+                            }
+
+                            clearFields()
                         }
-
-                        // Limpar campos
-                        clearFields()
                     }
-                }.addOnFailureListener { exception ->
-                    val mensagemErro = when (exception) {
-                        is FirebaseAuthWeakPasswordException -> "Digite uma senha com no mínimo 6 caracteres"
-                        is FirebaseAuthInvalidCredentialsException -> "Digite um e-mail válido"
-                        is FirebaseAuthUserCollisionException -> "Este e-mail já está em uso"
-                        is FirebaseNetworkException -> "Sem conexão com a internet"
-                        else -> "Erro: ${exception.message}"
+                    .addOnFailureListener { exception ->
+                        val mensagemErro = when (exception) {
+                            is FirebaseAuthWeakPasswordException -> "Digite uma senha com no mínimo 6 caracteres"
+                            is FirebaseAuthInvalidCredentialsException -> "Digite um e-mail válido"
+                            is FirebaseAuthUserCollisionException -> "Este e-mail já está em uso"
+                            is FirebaseNetworkException -> "Sem conexão com a internet"
+                            else -> "Erro: ${exception.message}"
+                        }
+                        showAlert(mensagemErro, false)
                     }
-                    showAlert(mensagemErro, false)
-                }
             }
         }
     }
@@ -172,47 +212,7 @@ class FormCadastro : AppCompatActivity() {
         datePickerDialog.show()
     }
 
-    // Função para verificar se é maior de 15 anos
-    private fun isMaiorDeIdade(dataNascimento: String): Boolean {
-        val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-        return try {
-            val data = sdf.parse(dataNascimento) ?: return false
-            val calendar = Calendar.getInstance()
-            calendar.time = data
-
-            // Calcular a idade
-            val hoje = Calendar.getInstance()
-            val idade = hoje.get(Calendar.YEAR) - calendar.get(Calendar.YEAR)
-
-            // Ajuste se o aniversário ainda não ocorreu este ano
-            if (hoje.get(Calendar.MONTH) < calendar.get(Calendar.MONTH) ||
-                (hoje.get(Calendar.MONTH) == calendar.get(Calendar.MONTH) &&
-                        hoje.get(Calendar.DAY_OF_MONTH) < calendar.get(Calendar.DAY_OF_MONTH))) {
-            }
-
-            idade >= 15 // Verifica se tem pelo menos 15 anos
-        } catch (e: Exception) {
-            false // Se a data for inválida
-        }
-    }
-
-    // Função para mostrar um AlertDialog
-    private fun showAlert(message: String, isSuccess: Boolean) {
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle(if (isSuccess) "Sucesso" else "Erro")
-        builder.setMessage(message)
-        builder.setPositiveButton("Fechar") { dialog, _ ->
-            dialog.dismiss()
-            if (isSuccess) {
-                // Redirecionar para a tela de login
-                startActivity(Intent(this, FormLogin::class.java)) // Substitua FormLogin pelo nome correto
-                finish()
-            }
-        }
-        builder.show()
-    }
-
-    // Limpa os campos após cadastro
+    // Função para limpar os campos após o cadastro
     private fun clearFields() {
         binding.editNome.setText("")
         binding.editSobrenome.setText("")
@@ -221,5 +221,41 @@ class FormCadastro : AppCompatActivity() {
         binding.editTelefone.setText("")
         binding.editEmail.setText("")
         binding.editSenha.setText("")
+        binding.editConfirmSenha.setText("")
+    }
+
+    // Verificação básica de e-mail
+    private fun isValidEmail(email: String): Boolean {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
+    }
+
+    // Validação básica de CPF
+    private fun isValidCPF(cpf: String): Boolean {
+        return cpf.length == 11 // Considera apenas os dígitos
+    }
+
+    // Verificação de telefone
+    private fun isValidPhoneNumber(telefone: String): Boolean {
+        return telefone.length == 11 // Considerando apenas os dígitos
+    }
+
+    // Verificação do nome (não pode conter números)
+    private fun isValidName(name: String): Boolean {
+        return name.matches(Regex("^[a-zA-Z\\s]+$"))
+    }
+
+    // Função para exibir alertas
+    private fun showAlert(mensagem: String, sucesso: Boolean) {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(if (sucesso) "Sucesso" else "Erro")
+        builder.setMessage(mensagem)
+        builder.setPositiveButton("OK") { dialog, _ ->
+            dialog.dismiss()
+            if (sucesso) {
+                startActivity(Intent(this, FormLogin::class.java))
+                finish()
+            }
+        }
+        builder.show()
     }
 }

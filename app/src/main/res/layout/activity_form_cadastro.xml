@@ -122,6 +122,22 @@
             android:maxLines="1"
             android:inputType="numberPassword" />
 
+        <EditText
+            android:id="@+id/editConfirmSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirme sua senha"
+            android:background="@color/white"
+            android:padding="18dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            android:maxLength="6"
+            android:maxLines="1"
+            android:inputType="numberPassword" />
+
+
+
         <Button
             android:id="@+id/bt_cadastrar"
             android:layout_width="match_parent"
