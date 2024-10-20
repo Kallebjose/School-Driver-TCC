@@ -7,8 +7,6 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -19,6 +17,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SchoolDriverTCC"
         tools:targetApi="31">
+        <activity
+            android:name=".DadosMotoristas"
+            android:exported="false" />
+        <activity
+            android:name=".DadosM"
+            android:exported="false"
+            android:label="@string/title_activity_dados_m"
+            android:theme="@style/Theme.SchoolDriverTCC" />
+        <activity
+            android:name=".MotoristaDados"
+            android:exported="false" />
+        <activity
+            android:name=".view.MotoristaDados"
+            android:exported="false"
+            android:label="@string/title_activity_motorista_dados"
+            android:theme="@style/Theme.SchoolDriverTCC" />
         <activity
             android:name=".view.HomeMotorista"
             android:exported="false" />
@@ -34,14 +48,9 @@
         <activity android:name=".view.pagamento.PixImageActivity" />
         <activity android:name=".view.pagamento.TelaPagamento" />
         <activity
-            android:name=".view.home.ui.conta.MinhaContaFragment"
-            android:label="Minha Conta"
-            android:exported="true" />
-        <activity
             android:name=".view.home.ui.conta.ContaFragment"
-            android:label="Minha Conta"
-            android:exported="true" />
-
+            android:exported="true"
+            android:label="Minha Conta" />
         <activity
             android:name=".view.PagamentoActivity"
             android:exported="true">
@@ -82,8 +91,7 @@
         <activity
             android:name=".view.Negociacaoenviada"
             android:exported="false" />
-        <activity
-            android:name=".view.SelecionarChatActivity" />
+        <activity android:name=".view.SelecionarChatActivity" />
         <activity
             android:name=".view.home.ui.negociacao.Negociacao"
             android:exported="false" />

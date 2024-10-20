@@ -37,4 +37,6 @@
 </string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="qr_code_description">00020126330014BR.GOV.BCB.PIX0111565341178785204000053039865802BR5925Kalleb Jose dos Santos So6009SAO PAULO62140510ZJ1zTX1fFq6304CC50</string>
+    <string name="title_activity_motorista_dados">MotoristaDados</string>
+    <string name="title_activity_dados_m">DadosM</string>
 </resources>

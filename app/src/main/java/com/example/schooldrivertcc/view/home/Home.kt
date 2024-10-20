@@ -40,7 +40,7 @@ class Home : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_contato, R.id.nav_home,
+                R.id.nav_conta, R.id.nav_home, R.id.nav_host_fragment_content_home, R.id.nav_user2
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

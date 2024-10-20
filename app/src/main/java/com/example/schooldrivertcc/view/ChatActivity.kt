@@ -3,6 +3,7 @@ package com.example.schooldrivertcc.view
 import Message
 import MessageAdapter
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ListView
@@ -13,6 +14,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.schooldrivertcc.R
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.*
 
 class ChatActivity : AppCompatActivity() {
@@ -41,8 +43,8 @@ class ChatActivity : AppCompatActivity() {
         listView.adapter = messageAdapter
 
         // Definir o nome do chat
-        val chatName = intent.getStringExtra("CHAT_NAME") ?: "Chat"
-        txtChatName.text = "Chat com: $chatName"
+        val chatName = intent.getStringExtra("CHAT_NAME") ?: "José Azevedo"
+        txtChatName.text = "Chat $chatName"
 
         // Enviar mensagem
         sendButton.setOnClickListener {
@@ -92,4 +94,20 @@ class ChatActivity : AppCompatActivity() {
                 messageAdapter.notifyDataSetChanged()
             }
     }
+
+    // Função para iniciar um chat entre um usuário e um motorista
+    fun iniciarChat(userId: String, motoristaId: String) {
+        val chatId = "${userId}_$motoristaId" // Um ID de chat único
+        val chatRef = FirebaseDatabase.getInstance().getReference("chats").child(chatId)
+
+        chatRef.setValue(mapOf("userId" to userId, "motoristaId" to motoristaId))
+            .addOnSuccessListener {
+                Log.d("ChatActivity", "Chat criado com sucesso!")
+            }
+            .addOnFailureListener { e ->
+                Log.e("ChatActivity", "Erro ao criar chat", e)
+            }
+    }
+
+
 }
