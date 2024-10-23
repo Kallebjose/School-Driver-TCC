@@ -51,6 +51,7 @@
             android:name=".view.home.ui.conta.ContaFragment"
             android:exported="true"
             android:label="Minha Conta" />
+
         <activity
             android:name=".view.PagamentoActivity"
             android:exported="true">
