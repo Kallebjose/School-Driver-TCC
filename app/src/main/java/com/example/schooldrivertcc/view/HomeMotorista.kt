@@ -2,29 +2,36 @@ package com.example.schooldrivertcc.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.ArrayAdapter
 import android.widget.Button
-import android.widget.ListView
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AlertDialog
+import com.example.schooldrivertcc.DadosMotoristas
 import com.example.schooldrivertcc.R
+import com.example.schooldrivertcc.view.formlogin.FormLogin
 
 class HomeMotorista : AppCompatActivity() {
 
     private lateinit var txtTitulo: TextView
     private lateinit var txtHorario: TextView
-    private lateinit var btVerRota: Button
-    private lateinit var btChat: Button
+    private lateinit var btVerRota: LinearLayout
+    private lateinit var btChat: LinearLayout
+    private lateinit var btPerfil: ImageView
+    private lateinit var btSair: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_motorista)
 
+        // Inicializa os elementos da UI
         txtTitulo = findViewById(R.id.txt_titulo)
         txtHorario = findViewById(R.id.txt_horario)
         btVerRota = findViewById(R.id.bt_ver_rota)
         btChat = findViewById(R.id.bt_chat)
+        btPerfil = findViewById(R.id.bt_perfil)
+        btSair = findViewById(R.id.bt_sair)
 
         // Ação do botão Ver Rota
         btVerRota.setOnClickListener {
@@ -36,18 +43,22 @@ class HomeMotorista : AppCompatActivity() {
             val intent = Intent(this, SelecionarChatActivity::class.java)
             startActivity(intent)
         }
+
+        // Ação do botão de Perfil
+        btPerfil.setOnClickListener {
+            val intent = Intent(this, DadosMotoristas::class.java)
+            startActivity(intent)
+        }
+
+        // Ação do botão Sair
+        btSair.setOnClickListener {
+            val intent = Intent(this, FormLogin::class.java) // Navega para a tela de login
+            startActivity(intent)
+            finish() // Fecha a atividade atual
+        }
     }
 
     private fun mostrarDialogRota() {
-        // Criar um dialog para mostrar as rotas
-        val dialogView = layoutInflater.inflate(R.layout.dialog_rota, null)
-        val dialogBuilder = AlertDialog.Builder(this)
-            .setView(dialogView)
-            .setCancelable(true)
-
-        val dialog = dialogBuilder.create()
-
-        // Configurando a lista de rotas
         val rotas = listOf(
             "1. Engenho Novo - Rua das Flores, 123 - Aluno: Ana Silva",
             "2. Rua São João, 45 - Aluno: Bruno Santos",
@@ -65,16 +76,11 @@ class HomeMotorista : AppCompatActivity() {
             "14. ITB - Avenida Brasil, 1200 - Destino final"
         )
 
-        val listaRotas = dialogView.findViewById<ListView>(R.id.lista_rotas)
-        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, rotas)
-        listaRotas.adapter = adapter
-
-        // Configurando o botão de fechar
-        val btnFechar = dialogView.findViewById<Button>(R.id.btn_fechar)
-        btnFechar.setOnClickListener {
-            dialog.dismiss()
-        }
-
+        // Criação do dialog para mostrar as rotas
+        val dialog = AlertDialog.Builder(this)
+        dialog.setTitle("Rotas")
+        dialog.setItems(rotas.toTypedArray(), null) // Exibe as rotas na lista
+        dialog.setPositiveButton("OK") { dialogInterface, _ -> dialogInterface.dismiss() }
         dialog.show()
     }
 }

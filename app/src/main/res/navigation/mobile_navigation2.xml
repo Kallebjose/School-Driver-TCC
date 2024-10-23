@@ -19,9 +19,9 @@
         tools:layout="@layout/fragment_contato"
         />
     <fragment
-        android:id="@+id/nav_conta"
-        android:name="com.example.schooldrivertcc.view.home.ui.conta.MinhaccFragment"
+        android:id="@+id/nav_user2"
+        android:name="com.example.schooldrivertcc.view.home.ui.user.UserFragment"
         android:label="Minha Conta"
-        tools:layout="@layout/fragment_conta"
+        tools:layout="@layout/fragment_user2"
         />
 </navigation>

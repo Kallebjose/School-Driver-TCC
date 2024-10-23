@@ -1,20 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:background="@color/yll"
     android:layout_height="match_parent"
+    android:background="@color/yll"
     android:padding="16dp">
+
+    <!-- Seta de Voltar -->
+    <ImageView
+        android:id="@+id/imageViewBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrowback"
+    android:layout_marginBottom="16dp"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    android:padding="8dp" />
 
     <TextView
         android:id="@+id/textViewTitulo"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Pagamento"
+        android:text="Opções de Pagamento"
         android:textSize="24sp"
-        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/imageViewBack"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:padding="16dp" />
@@ -24,35 +37,23 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Pagar com Pix"
+        android:textColor="@android:color/white"
         app:layout_constraintTop_toBottomOf="@id/textViewTitulo"
-        android:backgroundTint="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/black" />
 
     <Button
         android:id="@+id/buttonCartaoCredito"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Pagar com Cartão de Crédito"
+        android:text="Pagar com Cartão de Crédito ou  Débito"
+        android:textColor="@android:color/white"
         app:layout_constraintTop_toBottomOf="@id/buttonPagarPix"
-        android:backgroundTint="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
-
-    <Button
-        android:id="@+id/button_voltar_home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Voltar para Home"
-        tools:ignore="MissingConstraints"
-        android:backgroundTint="@color/black"
-        app:layout_constraintTop_toBottomOf="@id/buttonCartaoCredito"
-        android:layout_marginTop="165dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/black" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

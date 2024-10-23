@@ -2,15 +2,101 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/yll">
 
+    <!-- Nome -->
     <TextView
-        android:id="@+id/textViewUser"
-        android:layout_width="wrap_content"
+        android:id="@+id/textViewNome"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="User Fragment"
+        android:text="Nome"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="@color/black"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Sobrenome -->
+    <TextView
+        android:id="@+id/textViewSobrenome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Sobrenome"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/textViewNome"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:padding="16dp"/>
+        android:layout_marginTop="8dp" />
+
+    <!-- Email (campo editável) -->
+    <EditText
+        android:id="@+id/textViewEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/textViewSobrenome"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
+    <!-- Telefone (campo editável) -->
+    <EditText
+        android:id="@+id/textViewTelefone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Telefone"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/textViewEmail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:inputType="phone"
+        android:maxLength="11"/>
+
+    <!-- CPF -->
+    <TextView
+        android:id="@+id/textViewCPF"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="CPF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/textViewTelefone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
+    <!-- Data de Nascimento -->
+    <TextView
+        android:id="@+id/textViewDataNascimento"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Data de Nascimento"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/textViewCPF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
+    <!-- Botão de Atualizar -->
+    <Button
+        android:id="@+id/buttonAtualizar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Atualizar"
+        app:layout_constraintTop_toBottomOf="@id/textViewDataNascimento"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

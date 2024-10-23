@@ -1,49 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@color/yll"
-    >
+    android:background="@color/yll">
 
-    <TextView
-        android:id="@+id/txt_titulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Destino:  ITB Brasílio Flores de Azevedo"
-        android:textSize="18sp"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- Botão de Perfil -->
+            <ImageView
+                android:id="@+id/bt_perfil"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@drawable/ic_user"
+                android:layout_gravity="start"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Título -->
+            <TextView
+                android:id="@+id/txt_titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Destino: ITB Brasílio Flores de Azevedo"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Horário de saída: 5:45"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/txt_horario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Horário de chegada: 6:50"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_marginBottom="30dp"
+                android:layout_marginTop="8dp" />
+
+            <!-- Botão Ver Rota -->
+            <LinearLayout
+                android:id="@+id/bt_ver_rota"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="16dp"
+                android:background="@drawable/rounded_button_white"
+                android:layout_marginBottom="16dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_map"
+                    android:layout_marginEnd="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ver Rota"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <!-- Botão Ir para o Chat -->
+            <LinearLayout
+                android:id="@+id/bt_chat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="16dp"
+                android:background="@drawable/rounded_button_white"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_chat"
+                    android:layout_marginEnd="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ir para o Chat"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/bt_sair"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:text="Deslogar"
+        android:textColor="@android:color/white"
         android:textStyle="bold"
-        />
+        android:layout_margin="16dp"
+        android:drawablePadding="8dp"
+        android:drawableTop="@drawable/ic_bts" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Horário de saída: 6:00"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/txt_horario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Horário de chegada: 6:50"
-        android:textSize="16sp" />
-
-    <Button
-        android:id="@+id/bt_ver_rota"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ver Rota"
-        android:backgroundTint="@color/black"
-        android:layout_marginTop="30dp"
-        />
-
-    <Button
-        android:id="@+id/bt_chat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ir para o Chat"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="@color/black"/>
-</LinearLayout>
+</RelativeLayout>

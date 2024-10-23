@@ -4,29 +4,95 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="16dp">
+    android:padding="24dp"
+    android:background="@color/yll">
 
+    <!-- Título -->
     <TextView
         android:id="@+id/contatofragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nossos Contatos"
-        android:textSize="35sp"
-        android:layout_marginBottom="32dp"/>
+        android:textSize="32sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:textAlignment="center" />
 
-    <Button
+    <!-- Botão E-mail -->
+    <LinearLayout
         android:id="@+id/button_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="E-mail"
-        android:background="#FF5722" />
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        android:background="@drawable/rounded_button_white"
+        android:layout_marginBottom="16dp">
 
-    <Button
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_email"
+            android:layout_marginEnd="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="E-mail"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <!-- Botão WhatsApp -->
+    <LinearLayout
         android:id="@+id/button_whatsapp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="WhatsApp"
-        android:layout_marginTop="16dp"
-        android:background="#4CAF50" />
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        android:background="@drawable/rounded_button_white"
+        android:layout_marginBottom="16dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_whatsapp_background"
+            android:layout_marginEnd="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WhatsApp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <!-- Botão Ir para o Site -->
+    <LinearLayout
+        android:id="@+id/button_website"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        android:background="@drawable/rounded_button_white"
+        android:layout_marginBottom="16dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/web"
+            android:layout_marginEnd="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nosso Site"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+    </LinearLayout>
 
 </LinearLayout>

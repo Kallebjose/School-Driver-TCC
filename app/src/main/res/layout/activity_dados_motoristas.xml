@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/yll">
+
+    <!-- Botão Voltar -->
+    <ImageView
+        android:id="@+id/bt_voltar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrowback"
+    android:layout_marginBottom="16dp"
+    android:layout_gravity="start" />
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/txt_titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dados do Motorista"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Nome -->
+    <TextView
+        android:id="@+id/txt_nome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome: José"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Sobrenome -->
+    <TextView
+        android:id="@+id/txt_sobrenome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sobrenome: Azevedo"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="8dp" />
+
+    <!-- CPF -->
+    <TextView
+        android:id="@+id/txt_cpf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CPF: 123.456.789-00"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Data de Nascimento -->
+    <TextView
+        android:id="@+id/txt_data_nascimento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Data de Nascimento: 01/01/1990"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Telefone -->
+    <TextView
+        android:id="@+id/txt_telefone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Telefone: (11) 91234-5678"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="8dp" />
+
+    <!-- ITB Destino -->
+    <TextView
+        android:id="@+id/txt_itb_destino"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ITB Destino: ITB Professora Maria Theodora Pedreira de Freitas"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Número da Placa -->
+    <TextView
+        android:id="@+id/txt_numero_placa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Número da Placa: BEE4R20"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Código da Van -->
+    <TextView
+        android:id="@+id/txt_codigo_van"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Código da Van: 1020"
+        android:textSize="18sp"
+        android:textColor="@color/black" />
+
+</LinearLayout>
