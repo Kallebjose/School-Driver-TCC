@@ -1,0 +1,18 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Base.Theme.SchoolDriverTCC" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="colorPrimary">@color/yll</item>
+    </style>
+
+    <style name="Theme.SchoolDriverTCC" parent="Base.Theme.SchoolDriverTCC" />
+
+    <style name="Theme.SchoolDriverTCC.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.SchoolDriverTCC.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.SchoolDriverTCC.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>

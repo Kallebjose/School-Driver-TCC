@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_logo"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SchoolDriverTCC"
+        tools:targetApi="31">
+        <activity
+            android:name=".view.HomeMotorista"
+            android:exported="false" />
+        <activity
+            android:name=".view.LoginMotorista"
+            android:exported="false" />
+        <activity
+            android:name=".view.ChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.TelaPix"
+            android:exported="true" />
+        <activity android:name=".view.pagamento.PixImageActivity" />
+        <activity android:name=".view.pagamento.TelaPagamento" />
+        <activity
+            android:name=".view.home.ui.conta.MinhaContaFragment"
+            android:label="Minha Conta"
+            android:exported="true" />
+        <activity
+            android:name=".view.home.ui.conta.ContaFragment"
+            android:label="Minha Conta"
+            android:exported="true" />
+
+        <activity
+            android:name=".view.PagamentoActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.TelaPagamento"
+            android:exported="false" />
+        <activity
+            android:name=".view.home.ui.conta.ContaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.MapsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.TelaNegociar"
+            android:exported="false" />
+        <activity
+            android:name=".view.negociacao.NegociacaoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.home.Home"
+            android:exported="true"
+            android:label="@string/title_activity_home"
+            android:theme="@style/Theme.SchoolDriverTCC.NoActionBar" />
+        <activity
+            android:name=".view.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.formcadastro.FormCadastro"
+            android:exported="false"
+            android:label="@string/title_activity_form_cadastro"
+            android:theme="@style/Theme.SchoolDriverTCC" />
+        <activity
+            android:name=".view.Negociacaoenviada"
+            android:exported="false" />
+        <activity
+            android:name=".view.SelecionarChatActivity" />
+        <activity
+            android:name=".view.home.ui.negociacao.Negociacao"
+            android:exported="false" />
+        <activity
+            android:name=".view.formlogin.FormLogin"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
